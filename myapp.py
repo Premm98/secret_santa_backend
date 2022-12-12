@@ -17,6 +17,7 @@ class SecretSanta(Resource):
 
     def get(self, your_name):
         '''GET API'''
+        list_emp = ['shuchi.trivedi@kibbcom.com', 'sumit.joshi@kibbcom.com', 'neeta.wadawadgi@kibbcom.com', 'shelly.pritchard@kibbcom.com', 'jeevanmd@kibbcom.com', 'shalini.gupta@kibbcom.com', 'istaque.hussain@kibbcom.in', 'sajeev.manikkoth@kibbcom.com', 'akash.mahale@kibbcom.com', 'shailja.sharma@kibbcom.com', 'mukesh.kumar@kibbcom.com', 'nitesh.rathore@kibbcom.com', 'nisar.ahmed@kibbcom.com', 'amit.singh@kibbcom.com', 'vivek.gupta@kibbcom.com', 'Khushboo.pandey@kibbcom.com', 'magesh.vasudevan@kibbcom.com', 'rahul.mishra@kibbcom.com', 'nisar.sheikh@kibbcom.com', 'shaik@kibbcom.com', 'basavaraj.tenginakai@Kibbcom.com', 'nisha.sinha@kibbcom.com', 'balu.goudi@kibbcom.com', 'vikasmd@kibbcom.com', 'prem.prakash@kibbcom.com', 'Komali.Pasumarthy@Kibbcom.com', 'nikitha.mahale@kibbcom.com', 'sumit.gupta@kibbcom.com', 'anila.m@kibbcom.com', 'niteshr@kibbcom.com']
         dictionary = json.load(open('employees.json','r'))
         dictionary_receive = json.load(open('receivers.json','r'))
         allocated = json.load(open('allocated.json','r'))
@@ -35,7 +36,10 @@ class SecretSanta(Resource):
             return {
                 'message':'You very chalank bro!'
             }
-
+        if sender not in list_emp:
+            return {
+                'message':"Wrong email address!"
+            }
         temp_list = [emp for emp in receiver_list if emp!=sender]
         receiver = random.choice(temp_list)
         done = {}
