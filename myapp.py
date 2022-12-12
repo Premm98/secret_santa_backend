@@ -9,7 +9,7 @@ import json, random
 flask_app = Flask(__name__)
 app = Api(app=flask_app)
 
-name_space = app.namespace("Secret SAnta", description="Want to Know whom you will surprise this Christmas, lets find out!")
+name_space = app.namespace("Secret-Santa", description="Want to Know whom you will surprise this Christmas, lets find out!")
 
 @name_space.route("/get_person_name/<your_name>")
 class SecretSanta(Resource):
