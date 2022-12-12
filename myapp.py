@@ -31,7 +31,7 @@ class SecretSanta(Resource):
         sender_list = list(dictionary.keys())
         receiver_list = list(dictionary_receive.keys())
         allocated_list = list(allocated.keys())
-
+        sender_name = dictionary[sender]
         sender = your_name
         if sender in allocated_list:
             return {
@@ -64,4 +64,4 @@ class SecretSanta(Resource):
 
         with open('receivers.json','w') as file:
             json.dump(dictionary_receive,file)
-        return {'message':f'{sender}, you will surpise {receiver_name} this Christmas!'}
+        return {'message':f'{sender_name}, you will surpise {receiver_name} this Christmas!'}
