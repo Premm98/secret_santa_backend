@@ -23,7 +23,7 @@ class SecretSanta(Resource):
         time_now = datetime.now()
 
         with open('logs.txt','a') as logs:
-            logs.write(your_name, " tried at ", time_now)
+            logs.write(f'{your_name} tried at {time_now}')
         # print(your_name, " tried at ", time_now)
 
         sender_list = list(dictionary.keys())
