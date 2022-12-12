@@ -43,6 +43,7 @@ class SecretSanta(Resource):
             }
         temp_list = [emp for emp in receiver_list if emp!=sender]
         receiver = random.choice(temp_list)
+        receiver_name = dictionary_receive[receiver]
         done = {}
         done[sender] = receiver
 
@@ -63,4 +64,4 @@ class SecretSanta(Resource):
 
         with open('receivers.json','w') as file:
             json.dump(dictionary_receive,file)
-        return {'message':f'{sender}, you will surpise {receiver} this Christmas!'}
+        return {'message':f'{sender}, you will surpise {receiver_name} this Christmas!'}
