@@ -1,17 +1,17 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-import random
-import json
+# from fastapi import FastAPI
+# from pydantic import BaseModel
+# import random
+# import json
 
 app = FastAPI(description='Secret Santa',title='Wondring whom you will surprise this Christmas, lets find out!')
 
-dictionary = json.load(open('employees.json','r'))
-dictionary_receive = json.load(open('receivers.json','r'))
-allocated = json.load(open('allocated.json','r'))
+# dictionary = json.load(open('employees.json','r'))
+# dictionary_receive = json.load(open('receivers.json','r'))
+# allocated = json.load(open('allocated.json','r'))
 
-sender_list = list(dictionary.keys())
-receiver_list = list(dictionary_receive.keys())
-allocated_list = list(allocated.keys())
+# sender_list = list(dictionary.keys())
+# receiver_list = list(dictionary_receive.keys())
+# allocated_list = list(allocated.keys())
 
 @app.get("/santa/{yourName}")
 def get_app(your_name:str):
