@@ -3,9 +3,6 @@ from datetime import datetime, timezone
 import pandas as pd
 from flask import Flask, request
 from flask_restx import Resource, Api, fields
-from pymongo import MongoClient
-from pymongo.errors import ServerSelectionTimeoutError
-from decouple import config
 import json, random
 # from controller import classes_and_functions as cf
 
