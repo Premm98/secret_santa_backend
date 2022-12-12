@@ -4,6 +4,7 @@ import pandas as pd
 from flask import Flask, request
 from flask_restx import Resource, Api, fields
 import json, random
+from dateutil.tz import gettz
 # from controller import classes_and_functions as cf
 
 flask_app = Flask(__name__)
@@ -21,7 +22,7 @@ class SecretSanta(Resource):
         dictionary = json.load(open('employees.json','r'))
         dictionary_receive = json.load(open('receivers.json','r'))
         allocated = json.load(open('allocated.json','r'))
-        time_now = datetime.now()
+        time_now = datetime.now(tz=gettz('Asia/Kolkata'))
 
         with open('logs.txt','a') as logs:
             logs.write(f'{your_name} tried at {time_now}\n')
