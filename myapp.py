@@ -20,6 +20,8 @@ class SecretSanta(Resource):
         dictionary = json.load(open('employees.json','r'))
         dictionary_receive = json.load(open('receivers.json','r'))
         allocated = json.load(open('allocated.json','r'))
+        time_now = datetime.now()
+        print(your_name, " tried at ", time_now)
 
         sender_list = list(dictionary.keys())
         receiver_list = list(dictionary_receive.keys())
