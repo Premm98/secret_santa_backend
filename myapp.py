@@ -41,6 +41,7 @@ class SecretSanta(Resource):
             return {
                 'message':"Wrong email address!"
             }
+        sender_name = dictionary[your_name]
         temp_list = [emp for emp in receiver_list if emp!=sender]
         receiver = random.choice(temp_list)
         receiver_name = dictionary_receive[receiver]
