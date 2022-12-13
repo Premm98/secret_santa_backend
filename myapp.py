@@ -31,7 +31,6 @@ class SecretSanta(Resource):
         sender_list = list(dictionary.keys())
         receiver_list = list(dictionary_receive.keys())
         allocated_list = list(allocated.keys())
-        sender_name = dictionary[your_name]
         sender = your_name
         if sender in allocated_list:
             return {
