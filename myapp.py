@@ -3,19 +3,22 @@ from datetime import datetime, timezone
 import pandas as pd
 from flask import Flask, request
 from flask_restx import Resource, Api, fields
+from flask_cors import CORS, cross_origin
 import json, random
 from dateutil.tz import gettz
 # from controller import classes_and_functions as cf
 
 flask_app = Flask(__name__)
 app = Api(app=flask_app)
+cors = CORS(flask_app)
+
 
 name_space = app.namespace("Secret-Santa", description="Want to Know whom you will surprise this Christmas, lets find out!")
 
 @name_space.route("/get_person_name/<your_name>")
 class SecretSanta(Resource):
     '''Secret Santa'''
-
+    @cross_origin()
     def get(self, your_name):
         '''GET API'''
         list_emp = ['shuchi.trivedi@kibbcom.com', 'sumit.joshi@kibbcom.com', 'neeta.wadawadgi@kibbcom.com', 'shelly.pritchard@kibbcom.com', 'jeevanmd@kibbcom.com', 'shalini.gupta@kibbcom.com', 'istaque.hussain@kibbcom.in', 'sajeev.manikkoth@kibbcom.com', 'akash.mahale@kibbcom.com', 'shailja.sharma@kibbcom.com', 'mukesh.kumar@kibbcom.com', 'nitesh.rathore@kibbcom.com', 'nisar.ahmed@kibbcom.com', 'amit.singh@kibbcom.com', 'vivek.gupta@kibbcom.com', 'Khushboo.pandey@kibbcom.com', 'magesh.vasudevan@kibbcom.com', 'rahul.mishra@kibbcom.com', 'nisar.sheikh@kibbcom.com', 'shaik@kibbcom.com', 'basavaraj.tenginakai@Kibbcom.com', 'nisha.sinha@kibbcom.com', 'balu.goudi@kibbcom.com', 'vikasmd@kibbcom.com', 'prem.prakash@kibbcom.com', 'Komali.Pasumarthy@Kibbcom.com', 'nikitha.mahale@kibbcom.com', 'sumit.gupta@kibbcom.com', 'anila.m@kibbcom.com', 'niteshr@kibbcom.com']
